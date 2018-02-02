@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <title>Main Page</title>
+    <script>
+    
+    $(document).ready(function(){
+        $('button').on('click', loadData)
+    })
+
+    loadData=function(){
+        $.ajax({
+            url: 'users',
+            method: 'get',
+            dataType: 'json',
+            success: function(data){
+                console.log('Student Database: ',data);
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="display">
+        Data Loaded Here
+    </div>
+    <form>
+        <button type='button'>Load Data</button>
+    </form>
+</body>
+</html>
